@@ -21,13 +21,20 @@ msg_recu3 = connexion_avec_client.recv(1024).decode()
     
 if msg_recu3 =="+":
     valeurfinal_recu = addition(msg_recu1,msg_recu2)       
-    print("la valeur de l'Addition de " , msg_recu1, " +" ,msg_recu2,"= " ,valeurfinal_recu)
-    connexion_avec_client.send(str(valeurfinal_recu).encode())
-
+   
 if msg_recu3 =="-":
-    valeurfinal_recu = Soustraction(msg_recu1,msg_recu2)       
-    print("la valeur de Soustraction de " , msg_recu1, " +" ,msg_recu2,"= " ,valeurfinal_recu)
-    connexion_avec_client.send(str(valeurfinal_recu).encode())
+    valeurfinal_recu = Soustraction(msg_recu1,msg_recu2) 
+
+if msg_recu3 =="*":
+    valeurfinal_recu = Soustraction(msg_recu1,msg_recu2)   
+
+if msg_recu3 =="/":
+    valeurfinal_recu = Soustraction(msg_recu1,msg_recu2)
+
+valeurfinal_recu = connexion_avec_client.send(str(valeurfinal_recu).encode())
+
+print("la valeur de l'opération :" , msg_recu1, " +" ,msg_recu2,"= " ,valeurfinal_recu)
+    
 
 print("Fermeture de la connexion")
 connexion_avec_client.close()
